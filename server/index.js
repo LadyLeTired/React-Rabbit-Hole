@@ -1,45 +1,68 @@
-const express = require("express");
 const path = require("path");
+const express = require("express");
+const router = require("express").Router();
+
 const morgan = require("morgan");
-const bodyParser = require("body-parser");
-// const {db, Contact} = require('./db')
+const compression = require("compression");
+const PORT = process.env.PORT || 3000;
 const app = express();
-const PORT = 3000;
+module.exports = app;
 
-// Logging middleware
-app.use(morgan("dev"));
+const createApp = () => {
+  // logging middleware
+  app.use(morgan("dev"));
 
-// Body parsing middleware
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+  // body parsing middleware
+  app.use(express.json());
+  app.use(express.urlencoded({ extended: true }));
 
-// Static middleware
-app.use(express.static(path.join(__dirname, "..", "public")));
+  // compression middleware
+  app.use(compression());
 
-// API routes
+  // static file-serving middleware
+  app.use(express.static(path.join(__dirname, "..", "public")));
 
-// For all GET requests that aren't to an API route,
-// we will send the index.html!
-app.get("/*", (req, res, next) => {
-  res.sendFile(path.join(__dirname, "..", "index.html"));
-});
+  // any remaining requests with an extension (.js, .css, etc.) send 404
+  app.use((req, res, next) => {
+    if (path.extname(req.path).length) {
+      const err = new Error("Not found");
+      err.status = 404;
+      next(err);
+    } else {
+      next();
+    }
+  });
 
-// Handle 404s
-app.use((req, res, next) => {
-  const err = new Error("Not Found");
-  err.status = 404;
-  next(err);
-});
+  // sends index.html
+  app.use("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "..", "public/index.html"));
+  });
 
-// Error handling endware
-app.use((err, req, res, next) => {
-  res.status(err.status || 500);
-  res.send(err.message || "Internal server error");
-});
+  // error handling endware
+  app.use((err, req, res, next) => {
+    console.error(err);
+    console.error(err.stack);
+    res.status(err.status || 500).send(err.message || "Internal server error.");
+  });
+};
 
-app.listen(PORT, () =>
-  console.log(`
-    Listening on port ${PORT}
-    http://localhost:3000/
-  `)
-);
+const startListening = () => {
+  // start listening (and create a 'server' object representing our server)
+  const server = app.listen(PORT, () =>
+    console.log(`Mixing it up on port ${PORT}`)
+  );
+};
+
+async function bootApp() {
+  await createApp();
+  await startListening();
+}
+// This evaluates as true when this file is run directly from the command line,
+// i.e. when we say 'node server/index.js' (or 'nodemon server/index.js', or 'nodemon server', etc)
+// It will evaluate false when this module is required by another module - for example,
+// if we wanted to require our app in a test spec
+if (require.main === module) {
+  bootApp();
+} else {
+  createApp();
+}
