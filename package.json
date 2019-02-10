@@ -1,0 +1,46 @@
+{
+  "name": "react-rabbit-hole",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "author": "Amber Rodriguez",
+  "description": "Some practice passing props down the rabbit hole, er, I mean, from component to component.",
+  "scripts": {
+    "start": "npm run start-server & npm run build-watch",
+    "build-watch": "webpack -w",
+    "start-server": "nodemon server --ignore public"
+  },
+  "eslintConfig": {
+    "rules": {
+      "quotes": "off"
+    },
+    "env": {
+      "es6": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "jsx": true
+    }
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "morgan": "^1.9.1",
+    "pg": "^7.8.0",
+    "pg-hstore": "^2.3.2",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
+    "sequelize": "^4.28.6"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.5",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "webpack": "^4.29.3",
+    "webpack-dev-server": "^3.1.14"
+  }
+}
