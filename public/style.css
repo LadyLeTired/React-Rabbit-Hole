@@ -1,0 +1,13 @@
+#wonderland {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+#hatter {
+  flex: 0 1 auto;
+}
+
+#name-input {
+  flex: 1 0 auto;
+}
