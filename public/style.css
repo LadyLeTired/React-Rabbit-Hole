@@ -5,9 +5,30 @@
 }
 
 #hatter {
-  flex: 0 1 auto;
+  flex: 1 0 auto;
+  max-width: 400px;
 }
 
 #name-input {
+  flex: 0 1 auto;
+}
+
+#welcome-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+#tea-pic-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+#tea-pic {
   flex: 1 0 auto;
+  max-width: 800px;
+  align-self: center;
 }

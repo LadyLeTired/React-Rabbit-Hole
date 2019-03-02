@@ -22,7 +22,7 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
+      <div id="welcome-div">
         <h1>Welcome to the Tea Party!</h1>
         {this.state.userNameEntered ? (
           <div>
@@ -30,14 +30,14 @@ class Home extends Component {
           </div>
         ) : (
           <div>
-            <h4>What is your name, dear?</h4>
             <div id="wonderland">
-              <div id="hatter">
-                <img src={hatter} />
+              <div>
+                <img src={hatter} id="hatter" />
               </div>
               <div id="name-input">
                 <form onSubmit={this.handleSubmit}>
                   <label>
+                    <h4>What is your name, dear?</h4>
                     <h3>Do tell!!</h3>
                     <p>
                       <input

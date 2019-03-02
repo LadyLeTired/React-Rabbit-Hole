@@ -191,7 +191,7 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Earl Gray"
       }, "Earl Gray"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "Green Tean"
+        value: "Green Tea"
       }, "Green Tea"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Herbal"
       }, "Herbal Tea"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -284,19 +284,20 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Welcome to the Tea Party!"), this.state.userNameEntered ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Greeting__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "welcome-div"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Welcome to the Tea Party!"), this.state.userNameEntered ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Greeting__WEBPACK_IMPORTED_MODULE_2__["default"], {
         name: this.state.userName
-      })) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "What is your name, dear?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      })) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "wonderland"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: _public_images_hatter_png__WEBPACK_IMPORTED_MODULE_1___default.a,
         id: "hatter"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: _public_images_hatter_png__WEBPACK_IMPORTED_MODULE_1___default.a
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "name-input"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Do tell!!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "What is your name, dear?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Do tell!!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         name: "input-name",
         onChange: this.handleChange
@@ -331,8 +332,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var TeaOfChoice = function TeaOfChoice(props) {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Voila! Your Tea!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, props.tea), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: _public_images_teaset_jpg__WEBPACK_IMPORTED_MODULE_1___default.a
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "tea-pic-div"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Voila! Your Tea!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, props.tea), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: _public_images_teaset_jpg__WEBPACK_IMPORTED_MODULE_1___default.a,
+    id: "tea-pic"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Come again, ", props.name, "!"));
 };
 

@@ -36,7 +36,7 @@ class Greeting extends Component {
                   value={this.state.teaOrder}
                 >
                   <option value="Earl Gray">Earl Gray</option>
-                  <option value="Green Tean">Green Tea</option>
+                  <option value="Green Tea">Green Tea</option>
                   <option value="Herbal">Herbal Tea</option>
                   <option value="English Breakfast">English Breakfast</option>
                 </select>
